@@ -1,5 +1,6 @@
 api_version = "v2.3"
 ACTIVE = "Active"
+INACTIVE = 'Inactive'
 BASE_URL = "hcare.herokuapp.com"
 PER_PAGE = "10"
 RADIUS = 10

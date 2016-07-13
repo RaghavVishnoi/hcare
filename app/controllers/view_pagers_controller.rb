@@ -23,6 +23,16 @@ class ViewPagersController < Api::V1::ApisController
 		render :json => {object: @view_pager}
 	end
 
+	def status
+		@view_pager = ViewPager.find(params[:id])
+		if @view_pager.status == ACTIVE
+			@view_pager.status = INACTIVE
+		else
+			@view_pager.status = ACTIVE
+		end
+		render :json => {result: true,object: @view_pager}
+	end
+
 	def view_pager_params
 		params.require(:view_pager).permit(:view_pager,:status,:url)
 	end
