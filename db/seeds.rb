@@ -5,16 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# Role.create!([
-# 	{name: 'admin'},
-# 	{name: 'user'},
-# 	{name: 'trainer'}
-# ])
+Role.create!([
+	{name: 'admin'},
+	{name: 'user'},
+	{name: 'trainer'}
+])
 
 
-# User.create([
-# 	{:first_name => 'Raghav',:last_name => 'Pratap',:email => 'raghavvishnoi10@gmail.com',:contact_number => '7053747100',:gender => 'male',:password => 'raghav@12345',:role_ids => [1]}
-# ]);
+User.create([
+	{:first_name => 'Raghav',:last_name => 'Pratap',:email => 'raghavvishnoi10@gmail.com',:contact_number => '7053747100',:gender => 'male',:password => 'raghav@12345',:role_ids => [1]}
+]);
 
 Category.create!([
 	{name: 'GYM',status: 'Active'},
