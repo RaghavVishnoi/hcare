@@ -1,0 +1,125 @@
+== README
+
+Clearance
+
+Build Status Code Climate Documentation Quality
+
+Rails authentication with email & password.
+
+Clearance is intended to be small, simple, and well-tested. It has opinionated defaults but is intended to be easy to override.
+
+Please use GitHub Issues to report bugs. If you have a question about the library, please use the clearance tag on Stack Overflow. This tag is monitored by contributors.
+Install
+
+Clearance is a Rails engine tested against Rails >= 3.2 and Ruby >= 1.9.3. To get started, add Clearance to your Gemfile, bundle install, and run the install generator:
+
+$ rails generate clearance:install
+
+The generator:
+
+    Inserts Clearance::User into your User model
+    Inserts Clearance::Controller into your ApplicationController
+    Creates an initializer to allow further configuration.
+    Creates a migration that either creates a users table or adds any necessary columns to the existing table.
+
+Configure
+
+Override any of these defaults in config/initializers/clearance.rb:
+
+Clearance.configure do |config|
+  config.allow_sign_up = true
+  config.cookie_domain = '.hcare.com'
+  config.cookie_expiration = lambda { |cookies| 1.year.from_now.utc }
+  config.cookie_name = 'remember_token'
+  config.cookie_path = '/'
+  config.routes = true
+  config.httponly = false
+  config.mailer_sender = 'hcare@gmail.com'
+  config.password_strategy = Clearance::PasswordStrategies::BCrypt
+  config.redirect_url = '/'
+  config.secure_cookie = false
+  config.sign_in_guards = []
+  config.user_model = User
+end
+
+Clearance also provides routing constraints that can be used to control access at the routing layer:
+
+
+Helper Methods
+
+Use current_user, signed_in?, and signed_out? in controllers, views, and helpers. For example:
+
+<% if signed_in? %>
+  <%= current_user.email %>
+  <%= button_to "Sign out", sign_out_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign in", sign_in_path %>
+<% end %>
+
+Password Resets
+
+When a user resets their password, Clearance delivers them an email. You should change the mailer_sender default, used in the email's "from" header:
+
+Clearance.configure do |config|
+  config.mailer_sender = 'reply@example.com'
+end
+
+
+
+Overriding Clearance
+Routes
+
+See config/routes.rb for the default set of routes.
+
+As of Clearance 1.5 it is recommended that you disable Clearance routes and take full control over routing and URL design.
+
+To override a Clearance controller, subclass it and update the routes to point to your new controller (see the "Routes" section).
+
+class Api::V1::PasswordsController < Clearance::PasswordsController
+class Api::V1::SessionsController < Clearance::SessionsController
+class Api::V1::UsersController < Clearance::UsersController
+
+
+Clearance has a password reset mailer. If you are using Rails 4.2 and Clearance 1.6 or greater, Clearance will use ActiveJob's deliver_later method to automatically take advantage of your configured queue.
+
+If you are using an earlier version of Rails, you can override the Clearance::Passwords controller and define the behavior you need in the deliver_email method.
+
+class PasswordsController < Clearance::PasswordsController
+  def deliver_email(user)
+    ClearanceMailer.delay.change_password(user)
+  end
+end
+
+==========================Authentication API'S========================
+
+Create new user : /api/users[POST]
+  {
+	user
+	{
+		"first_name":"",
+		"last_name":"",
+		"email":"",
+		"password":"",
+		"contact_number":""
+	}
+  }
+
+  Login user : /api/session[POST]
+  {
+	session
+	{
+		"email":"",
+		"password":""
+	}
+  }
+
+  Forgot password : /api/passwords[POST]
+  {
+	password
+	{
+		"email":""
+	}
+  }
+
+
+
