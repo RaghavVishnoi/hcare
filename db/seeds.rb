@@ -11,7 +11,6 @@ Role.create!([
 	{name: 'trainer'}
 ])
 
-
 User.create([
 	{:first_name => 'Raghav',:last_name => 'Pratap',:email => 'raghavvishnoi10@gmail.com',:contact_number => '7053747100',:gender => 'male',:password => 'raghav@12345',:role_ids => [1]}
 ]);

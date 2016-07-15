@@ -13,7 +13,7 @@ Rails.application.routes.draw do
           resources :users, only: [:create] do
             resource :password, only: [:create, :edit, :update]
           end
-          
+
           post "/facebook_auth", to: 'users#facebook_auth'
           post "/google_auth",to: 'users#google_auth'
 
@@ -56,6 +56,7 @@ Rails.application.routes.draw do
 
     end
   end 
+<<<<<<< HEAD
       # get "/sign_in" => "sessions#new"
       # delete "/sign_out" => "sessions#destroy" 
       root 'sessions#new'
@@ -65,7 +66,13 @@ Rails.application.routes.draw do
 
       resources :view_pagers, only: [:index,:create,:update,:new]
       resources :home_workouts, only: [:index,:create,:update,:show,:new]
-      resources :first_aids, only: [:index,:create,:show]
+ 
+       resources :view_pagers do
+        collection do
+          patch ":id/status" => "view_pagers#status"
+        end
+      end
+       resources :first_aids, only: [:index,:create,:show]
 
 
 end
