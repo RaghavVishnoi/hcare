@@ -16,6 +16,7 @@ class Api::V1::UsersController < Clearance::BaseController
 
 	def facebook_auth
 		@user  = User.new extra_facebook_information
+		puts "ssssssss#{@user.to_json}"
 		@user_exists = User.exists?(facebook_user_id: @user.facebook_user_id)
 		if @user_exists
 			User.find_by(facebook_user_id: @user.facebook_user_id).update(facebook_user_token: @user.facebook_user_token)

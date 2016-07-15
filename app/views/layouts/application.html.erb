@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HCare</title>
+  <title>HCARE</title>
+  <%= favicon_link_tag "/assets/fevicon.jpg", rel: 'icon', type: 'image/png' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script data-turbolinks-track="true" src="/assets/scripts.js?body=1"></script>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="/assets/compiled/custom.css" />
 </head>
 <body>
 
+   
+<div id="theme-wrapper">
+<%= render 'common/header'%>
+<div id="page-wrapper" class="container">
+<div class="row">
+<div id="nav-col">
+<%= render 'common/menubar'%>
+<div id="nav-col-submenu"></div>
+</div>
+     
 <%= yield %>
+</div>
+</div>
+</div>
 
 </body>
 </html>
+
+
+
+
+  
+ 

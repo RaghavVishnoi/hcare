@@ -1,0 +1,9 @@
+<%= form_for @home_workout, html: { multipart: true } do |f| %>
+	 
+
+	      <%=f.text_field :title %>
+	      <%=f.text_field :description %>
+	      <%= f.file_field :home_workout %>
+	      <%= f.submit "Save"  %>
+	   
+<% end %>

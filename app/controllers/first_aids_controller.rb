@@ -1,4 +1,4 @@
-class FirstAidsController < Api::V1::ApisController
+class FirstAidsController < ApplicationController
 
 	skip_before_filter :user_authenticate
 

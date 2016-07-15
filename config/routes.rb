@@ -56,8 +56,15 @@ Rails.application.routes.draw do
 
     end
   end 
-      resources :view_pagers, only: [:index,:create,:update]
-      resources :home_workouts, only: [:index,:create,:update,:show]
+      # get "/sign_in" => "sessions#new"
+      # delete "/sign_out" => "sessions#destroy" 
+      root 'sessions#new'
+
+      resources :sessions, only: [:new,:create,:destroy]
+
+
+      resources :view_pagers, only: [:index,:create,:update,:new]
+      resources :home_workouts, only: [:index,:create,:update,:show,:new]
       resources :first_aids, only: [:index,:create,:show]
 
 

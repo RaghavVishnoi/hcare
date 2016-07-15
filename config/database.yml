@@ -19,8 +19,8 @@ development:
   min_messages: warning
   pool: 2
   timeout: 5000
-  username: postgres
-  password: raghav@12345
+  username: pinch
+  password: pinch
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

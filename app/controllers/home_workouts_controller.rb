@@ -1,8 +1,13 @@
-class HomeWorkoutsController < Api::V1::ApisController
+class HomeWorkoutsController < ApplicationController
+	#skip_before_action :authenticate_user
 
 	def index
 		@home_workouts = HomeWorkout.where(status: ACTIVE)
 		render :json => {result: true,object: @home_workouts}
+	end
+
+	def new
+		@home_workout = HomeWorkout.new
 	end
 
 	def create

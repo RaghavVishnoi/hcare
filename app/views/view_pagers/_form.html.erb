@@ -1,0 +1,12 @@
+<div class = "view_pager_form" >
+	 <%= form_for @view_pager, html: { multipart: true } do |f| %>
+	      
+	    
+	      <%= f.label :status %><br/> 
+	      <%= f.select :status,STATUS%><br/>	
+ 
+	      		<%= f.file_field :view_pager %><br/>
+ 	      <%= f.submit "Save"  %>
+	   
+	   <% end %>
+</div>

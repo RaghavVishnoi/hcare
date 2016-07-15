@@ -1,6 +1,6 @@
 api_version = "v2.3"
 ACTIVE = "Active"
-BASE_URL = "hcare.herokuapp.com"
+BASE_URL = "192.168.11.141:3000"
 PER_PAGE = "10"
 RADIUS = 10
 
@@ -10,3 +10,8 @@ ACCEPTED_SUCCESS_CODE = 202
 UNAUTHORIZE_ACCESS_CODE = 401
 NOT_FOUND_CODE = 404
 UNPROCESSABLE_ENTITY_CODE = 422
+
+STATUS = [
+	["Active","ACTIVE"],
+	["Inactive","INACTIVE"]
+]
