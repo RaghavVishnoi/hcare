@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   #   request.env['omniauth.origin'] || stored_location_for(resource) || root_path
   # end
 
+  before_action :authenticate_user
+
   private 
   	def render_errors(errors)
     	render json: { errors: errors }, status: 422

@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
 	def create
 		@user = authenticate(params)
  		sign_in(@user) do |status|
- 			 
- 			if  @user.roles.first.name=='user' &&  status.success?  && @user!= nil
+  			if  status.success?  && @user!= nil
+  				@user.update_attribute(:token_expiry, Time.now + 1.day)
   				redirect_to new_view_pager_path 		 	
 			else
 				render :new 

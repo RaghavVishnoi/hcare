@@ -35,12 +35,14 @@ class ViewPagersController < ApplicationController
 	end
 
 	def status
-		@view_pager = ViewPager.find(params[:id])
+		puts "sssss#{STATUS[0]}"
+		@view_pager = ViewPager.find(params[:id].to_i)
 		if @view_pager.status == ACTIVE
-			@view_pager.status = INACTIVE
+ 			@view_pager.status = INACTIVE
 		else
-			@view_pager.status = ACTIVE
+ 			@view_pager.status = ACTIVE
 		end
+		@view_pager.save
 		render :json => {result: true,object: @view_pager}
 	end
 

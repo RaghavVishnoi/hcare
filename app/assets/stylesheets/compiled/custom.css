@@ -270,4 +270,9 @@ select#type option{background: #fff;color: #000;}
     top:23px;
 }
 .user-list tbody td.nowrap{white-space: nowrap;}
-  
+
+ .status_change{
+  position: relative;
+  margin-left: 200px;
+ }
+ 

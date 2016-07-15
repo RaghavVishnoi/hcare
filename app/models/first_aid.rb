@@ -1,9 +1,11 @@
 class FirstAid < ActiveRecord::Base
 
 
-	has_many :treatments 
-
-	validates :symptoms, presence: true, uniqueness: true
+	has_many :treatments
+	attr_accessor :prerequisites
+	#accepts_nested_attributes_for :treatments, :allow_destroy => true
+ 
+	#validates :symptoms, presence: true, uniqueness: true
 	validate  :status 
 	validate  :treatments
 

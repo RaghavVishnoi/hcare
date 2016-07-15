@@ -1,2 +1,41 @@
+<div id="content-wrapper">
+<div class="row">
+<div class="col-lg-12">
 
+ 
 <%= render 'form' %>
+
+<div class="row">
+<div class="col-lg-12">
+	<div class="main-box">
+		<header class="main-box-header">
+			<h2>Home Workout</h2>
+		</header>
+		
+		 	<div class="main-box-body">
+				<div id="gallery-photos-lightbox">
+					<ul class="clearfix gallery-photos">
+						<% @home_workouts.each do |image| %>
+						 
+						<li class="col-md-3 col-sm-3 col-xs-6">
+							<a href="img/samples/hdr/img_8.jpg" class="photo-box image-link" style="background-image: url('<%=image.home_workout.url%>');"></a>
+							 
+						</li>
+						<% end %>
+						 
+					</ul>
+				</div>
+			</div>
+	
+	</div>
+</div>
+</div>
+
+ 
+ 
+
+</div>
+</div>
+
+
+</div>

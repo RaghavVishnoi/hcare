@@ -56,8 +56,7 @@ Rails.application.routes.draw do
 
     end
   end 
-<<<<<<< HEAD
-      # get "/sign_in" => "sessions#new"
+       # get "/sign_in" => "sessions#new"
       # delete "/sign_out" => "sessions#destroy" 
       root 'sessions#new'
 
@@ -69,10 +68,10 @@ Rails.application.routes.draw do
  
        resources :view_pagers do
         collection do
-          patch ":id/status" => "view_pagers#status"
+          post ":id/status" => "view_pagers#status"
         end
       end
-       resources :first_aids, only: [:index,:create,:show]
+       resources :first_aids, only: [:index,:create,:show,:new]
 
 
 end

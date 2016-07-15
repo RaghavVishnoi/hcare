@@ -1,12 +1,28 @@
-<div class = "view_pager_form" >
-	 <%= form_for @view_pager, html: { multipart: true } do |f| %>
-	      
-	    
-	      <%= f.label :status %><br/> 
-	      <%= f.select :status,STATUS%><br/>	
- 
+
+ 	 <%= form_for @view_pager, html: { multipart: true } do |f| %>
+	
+	<div class="col-md-12">      
+	    <div class="row">
+	    	<div class="col-md-4">
+	    	</div>
+	    	<div class="col-md-1">
+	    		File
+	    	</div>
+	    	<div class="col-md-2">
 	      		<%= f.file_field :view_pager %><br/>
- 	      <%= f.submit "Save"  %>
+	    	</div>
+	    	<div class="col-md-1">
+	    		
+	    	</div>
+	    	<div class="col-md-3">
+	    		<%= f.label :Status %> 
+	      		<%= f.select :status,STATUS%><br/> 
+	    	</div>
+	    	<div class="col-md-1">
+	    		 <%= f.submit "Upload" ,:class=> 'btn-success'  %>
+	    	</div>
+	    </div>
+	</div>      
 	   
 	   <% end %>
-</div>
+ 

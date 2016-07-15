@@ -8,6 +8,7 @@ class HomeWorkoutsController < ApplicationController
 
 	def new
 		@home_workout = HomeWorkout.new
+		@home_workouts = HomeWorkout.all
 	end
 
 	def create
@@ -16,7 +17,11 @@ class HomeWorkoutsController < ApplicationController
 			url = HomeWorkoutSerializer.new(@home_workout, :root => false)
 			full_url = BASE_URL+url.image_url
 			HomeWorkout.where(id: @home_workout.id).update_all(photo_url: full_url)
-			render :json => {result: true,object: full_url}
+			respond_to do |format|
+			      format.html { redirect_to new_home_workout_path }
+			      format.json { render result: true,object: full_url}
+			   end
+			#render :json => {result: true,object: full_url}
 		else
 			render_errors @home_workout.errors.full_messages
 		end

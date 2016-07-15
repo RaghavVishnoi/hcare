@@ -10,11 +10,21 @@ class FirstAidsController < ApplicationController
 		render :json => {result: true,object: @first_aids,:has_next => has_next(next_id)}
 	end
 
+	def new
+		@first_aid = FirstAid.new
+	end
+
 	def create
 		@first_aid = FirstAid.new(first_aid_params)
-		if @first_aid.save
-			FirstAid.treatments(params[:first_aid][:treatments],@first_aid.id)
-			render :json => {result: true,object: @first_aid}
+		 
+		if @first_aid != nil
+			Treatment.create!(treatment: params[:first_aid][:prerequisites] , first_aid_id: params[:first_aid][:symptoms].to_i )
+			#FirstAid.treatments(params[:first_aid][:treatments],@first_aid.id)
+			respond_to do |format|
+			      format.html { redirect_to new_first_aid_path }
+			      format.json { render result: true,object: @first_aid}
+			   end
+			#render :json => {result: true,object: @first_aid}
 		else
 			render_errors @first_aid.errors.full_messages
 		end
@@ -31,7 +41,7 @@ class FirstAidsController < ApplicationController
 	end
 
 	def first_aid_params
-		params.require(:first_aid).permit(:symptoms,:status)
+		params.require(:first_aid).permit( :prerequisites,:symptoms )
 	end
 
 	def has_next(id)

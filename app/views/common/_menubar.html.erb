@@ -6,11 +6,9 @@
                
                 <div class="user-box user-box-custom">
                   <span class="name">
-                    <a href="/users/<%=current_user.id%>/edit" class="dropdown-toggle" >
-                     <%=current_user.first_name%>                      
-                    </a>
+                     
                     <% if params[:action] == 'show' || params[:action] == 'edit' || params[:action] == 'new'%>
-                       <a href="javascript:history.back()" class="back-btn"><i class="fa fa-chevron-left" aria-hidden="true" style="color: white;font-size: 24px;margin-left: 92px; "></i></a>
+                       <!-- <a href="javascript:history.back()" class="back-btn"><i class="fa fa-chevron-left" aria-hidden="true" style="color: white;font-size: 24px;margin-left: 92px; "></i></a> -->
                       <%end %>
                   </span>
                   
@@ -20,105 +18,31 @@
              
               <div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav"> 
                 <ul class="nav nav-pills nav-stacked">
-                 
-
-
-                   
-                  <li id = "wod_expansion" data-no-turbolink>
-                    <a href="/wod_expansions">
+                  
+                  <li id = "view_pager" data-no-turbolink>
+                    <a href="/view_pagers/new">
                       <i class="fa fa-th-large"></i>
-                      <span>WOD Expansion</span>
+                      <span>View Pagers</span>
+                      
+                    </a>
+                  </li>
+                 
+                  <li id = "Home_workout" data-no-turbolink>
+                    <a href="/home_workouts/new">
+                      <i class="fa fa-th-large"></i>
+                      <span>Home Workout</span>
+                      
+                    </a>
+                  </li>
+
+                  <li id = "first_aids" data-no-turbolink>
+                    <a href="/first_aids/new">
+                      <i class="fa fa-th-large"></i>
+                      <span>First Aid</span>
                       
                     </a>
                   </li>
                   
-               
-                  <li id = "target" data-no-turbolink>
-                    <a href="/targets">
-                      <i class="fa fa-dot-circle-o"></i>
-                      <span>Gionee Good Morning</span>                     
-                    </a>
-                  </li>
-                  
-               
-                  <li id = "sales_beat" data-no-turbolink>
-                    <a href="/sales_beat_orders">
-                      <i class="fa fa-shopping-cart"></i>
-                      <span> Daily Sales Beat Orders</span>                     
-                    </a>
-                  </li>
-                 
-                  <li id = "sales_beat_data" data-no-turbolink>
-                    <a href="/sales_beats">
-                      <i class="fa fa-money"></i>
-                      <span> Daily Sales Beat</span>                     
-                    </a>
-                  </li>
-                 
-                  <li id = "download">
-                    <a href="/downloads">
-                      <i class="fa fa-download"></i>
-                      <span>Downloads</span>                     
-                    </a>
-                  </li>
-                 
-                   <li id = "permission">
-                    <a href="/permissions">
-              <i class="fa fa-lock" aria-hidden="true"></i>
-                      <span>Permissions</span>                     
-                    </a>
-                  </li>
-                 
-                   <li id = "role">
-                    <a href="/roles">
-              <i class="fa fa-lock" aria-hidden="true"></i>
-                      <span>Roles</span>                     
-                    </a>
-                  </li>
-                 
-                   <li id = "module_group" data-no-turbolink>
-                    <a href="/module_groups">
-                      <i class="fa fa-download"></i>
-                      <span>Modules</span>                     
-                    </a>
-                  </li>
-                 
-                   <li id = "users" data-no-turbolink>
-                    <a href="/users">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                      <span>Users</span>                     
-                    </a>
-                  </li>
-                
-                   <li id = "permit_roles">
-                    <a href="/permit_roles">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                      <span>Permit roles</span>                     
-                    </a>
-                  </li>
-                 
-                   <li id = "designations">
-                    <a href="/designations">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                      <span>Designations</span>                     
-                    </a>
-                  </li>
-                 
-                   <li id = "reporting_manager">
-                    <a href="/user_parents">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                      <span>Reporting Managers</span>                     
-                    </a>
-                  </li>
-                 
-                   <li id = "eof">
-                    <a href="/models">
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                      <span>EOL</span>                     
-                    </a>
-                  </li>
-                 
-
                   <li class="nav-header hidden-sm hidden-xs"></li>
                     
                   </ul>
